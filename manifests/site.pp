@@ -9,6 +9,5 @@ node default {
   path   => '/etc/selinux/config',
   line   => 'SELINUX=permissive',
   match  => "^SELINUX=.*$",
-  notify => Exec['noreboot'],
   }
 }
