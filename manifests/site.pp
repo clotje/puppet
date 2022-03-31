@@ -10,6 +10,7 @@ file { '/etc/selinux/config':
 }->
 
 file_line{'Setting SELinux to Permissive mode permanently':
+  ensure => present,
   path   => '/etc/selinux/config',
   line   => 'SELINUX=permissive',
   match  => "^SELINUX=.*$",
