@@ -3,7 +3,7 @@
 # Setting SELinux to Permissive mode permanently 
 #
 #
-node default {
+class security::site {
 file { '/etc/selinux/config':
   ensure => present,
 }~>
