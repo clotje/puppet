@@ -17,6 +17,6 @@ file_line{'Setting SELinux to Permissive mode permanently':
 
 exec{'noreboot':
   refreshonly => true,
-  command     => 'setenforce 0',
+  command     => '/sbin/setenforce 0',
 }
 }
