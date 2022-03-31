@@ -3,22 +3,12 @@
 # Setting SELinux to Permissive mode permanently 
 #
 #
-class security::selinux{
-
-file { '/etc/selinux/config':
-  ensure => present,
-}->
-
-file_line{'Setting SELinux to Permissive mode permanently':
+node default {
+ file_line{'Setting SELinux to Permissive mode permanently':
   ensure => present,
   path   => '/etc/selinux/config',
   line   => 'SELINUX=permissive',
   match  => "^SELINUX=.*$",
   notify => Exec['noreboot'],
-}
-
-exec{'noreboot':
-  refreshonly => true,
-  command     => 'setenforce 0',
-}
+  }
 }
